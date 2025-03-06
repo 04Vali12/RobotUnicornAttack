@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 public class PlayerCollision : MonoBehaviour
 {
+    [SerializeField]
    private UnityEvent onPlayerLose;
    private Dash dash;
 
@@ -15,11 +16,14 @@ public class PlayerCollision : MonoBehaviour
    {
        if (collision.gameObject.CompareTag("Obstacle"))
        {
-           onPlayerLose.Invoke();
-       }
-       else 
-    {
-        onPlayerLose?.Invoke();
+        if (dash.IsDashing)
+        {
+            Destroy(collision.gameObject);
+        }
+        else 
+        {
+            onPlayerLose?.Invoke();
+        }
        }
    }
 }

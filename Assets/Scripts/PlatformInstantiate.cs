@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformInstance : MonoBehaviour
+public class PlatformInstantiate : MonoBehaviour
 {
    [SerializeField]
    private List<GameObject> platforms;
@@ -34,5 +34,13 @@ public class PlatformInstance : MonoBehaviour
             platform.transform.SetParent(transform);
         }
 
+  }
+  public void Restart()
+  {
+      foreach (Transform child in transform)
+      {
+          Destroy(child.gameObject);
+      }
+      Start();
   }
 }
