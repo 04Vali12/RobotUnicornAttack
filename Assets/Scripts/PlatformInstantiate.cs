@@ -5,8 +5,7 @@ public class PlatformInstantiate : MonoBehaviour
 {
    [SerializeField]
    private List<GameObject> platforms;
-   [SerializeField]
-   private Transform platformsPosition;
+   
    [SerializeField]
    private float distanceBetweenPlatforms = 2f;
 
@@ -32,6 +31,7 @@ public class PlatformInstantiate : MonoBehaviour
             GameObject platform = Instantiate(platforms[randomIndex], new Vector3(offsetPositionX, platformsPosition.position.y, platformsPosition.position.z), Quaternion.identity);
             offsetPositionX += distanceBetweenPlatforms + platform.GetComponent<BoxCollider>().size.x * 0.5f;
             platform.transform.SetParent(transform);
+            platform.transform.position = new Vector3(offsetPositionX, 0,0);
         }
 
   }
