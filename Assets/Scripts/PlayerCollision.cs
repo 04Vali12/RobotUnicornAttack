@@ -1,29 +1,37 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class PlayerCollision : MonoBehaviour
 {
-    [SerializeField]
-   private UnityEvent onPlayerLose;
-   private Dash dash;
+     [SerializeField]
+    private UnityEvent onPlayerLose;
+    private Dash dash;
 
-   private void Start()
-   {
+    private void Start()
+    {
         dash = GetComponent<Dash>();
-   }
+    }
 
-   private void OnCollisionEnter(Collision collision)
-   {
-       if (collision.gameObject.CompareTag("Obstacle"))
-       {
-        if (dash.IsDashing)
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
         {
-            Destroy(collision.gameObject);
+            if (dash.IsDashing)
+            {
+                Destroy(collision.gameObject);
+            }
+            else
+            {
+                onPlayerLose?.Invoke();
+            }
         }
-        else 
+    }
+    private void OggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("DeadZone"))
         {
             onPlayerLose?.Invoke();
         }
-       }
-   }
+    }
 }

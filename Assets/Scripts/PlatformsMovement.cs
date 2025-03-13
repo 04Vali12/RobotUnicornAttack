@@ -15,9 +15,20 @@ public class PlatformsMovement : MonoBehaviour
 
     private Vector3 startingPosition;
     private float speed;
-    private Vector3 moveDistance;
-    
 
+    private float pastSpeed;
+    private Vector3 moveDistance;
+
+    public void SpeedUp(float speedMultiplier)
+    {
+        pastSpeed = speed;
+        speed *= speedMultiplier;
+    }
+
+    public void SpeedDown()
+    {
+        speed = pastSpeed;
+    }
     private void Start()
     {
        startingPosition = transform.position;
