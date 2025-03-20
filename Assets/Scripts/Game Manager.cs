@@ -7,13 +7,13 @@ public class GameManager : MonoBehaviour
     private UnityEvent onGameStart;
 
     [SerializeField]
+    private UnityEvent onFinishGame;
+
+    [SerializeField]
     private UnityEvent onRespawnGame;
     [SerializeField]
     private float secondsToRestart = 3f;
-
     [SerializeField]
-    private UnityEvent onFinishGame;
-
     private float finalSecondsToRestart =5f;
 
     private void Start()
@@ -22,12 +22,12 @@ public class GameManager : MonoBehaviour
     }
     public void RespawnGame()
     {
-        Invoke(nameof(RestartGame), finalSecondsToRestart);
+        Invoke(nameof(RestartGame), secondsToRestart);
     }
     public void FinishGame()
     {
         onFinishGame?.Invoke();
-        Invoke("StartGame", secondsToRestart);
+        Invoke("Start", secondsToRestart);
         Invoke("RestartGame", finalSecondsToRestart);
     }
     private void RestartGame()

@@ -3,15 +3,14 @@ using UnityEngine.Events;
 
 public class PlatformTrigger : MonoBehaviour
 {
-   [SerializeField]
-   public UnityEvent onPLatformTriggered;
-
-   public void OnTriggerEnter(Collider other)
-   {
-       if (other.gameObject.CompareTag("DeadZone"))
-       {
-           Desrtroy(other.gameObject);
-           onPLatformTriggered?.Invoke();
-       }
-   }
+    [SerializeField]
+    private UnityEvent onPlatformTriggered;
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("DeadZone"))
+        {
+            Destroy(other.gameObject);
+            onPlatformTriggered?.Invoke();
+        }
+    }
 }

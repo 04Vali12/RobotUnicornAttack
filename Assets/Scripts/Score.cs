@@ -17,7 +17,7 @@ public class Score : MonoBehaviour
    [SerializeField]
    private int scoreNumber = 3;
 
-   private void Initialize()
+   public void Initialize()
    {
       currentScore = 0;
       scores.Clear();
