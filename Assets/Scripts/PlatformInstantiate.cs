@@ -22,7 +22,9 @@ public class PlatformInstantiate : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             int randomIndex = Random.Range(0, platforms.Count);
-            if (offsetPositionX != 0) 
+            if (i>=2)
+            {
+                 if (offsetPositionX != 0) 
             {
                 offsetPositionX += platforms[randomIndex].GetComponent<BoxCollider>().size.x * 0.5f;
             }
@@ -30,6 +32,19 @@ public class PlatformInstantiate : MonoBehaviour
             offsetPositionX += distanceBetweenPlatforms + platform.GetComponent<BoxCollider>().size.x * 0.5f;
             platform.transform.SetParent(transform);
             platform.transform.localPosition = new Vector3(offsetPositionX, 0,0);
+            }
+            else
+            {
+                 if (offsetPositionX != 0) 
+            {
+                offsetPositionX += platforms[0].GetComponent<BoxCollider>().size.x * 0.5f;
+            }
+            GameObject platform = Instantiate(platforms[0], Vector3.zero, Quaternion.identity);
+            offsetPositionX += distanceBetweenPlatforms + platform.GetComponent<BoxCollider>().size.x * 0.5f;
+            platform.transform.SetParent(transform);
+            platform.transform.localPosition = new Vector3(offsetPositionX, 0,0);
+            }
+           
         }
     }
 

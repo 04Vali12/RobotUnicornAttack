@@ -14,7 +14,11 @@ public class Dash : MonoBehaviour
     private bool canDash = true;
     private bool isDashing;
     public bool IsDashing { get => isDashing; }
+
     private bool dashEnabled = true;
+
+    [SerializeField]
+    private UnityEvent AudioDash;
 
     public void SetDashEnabled(bool enabled)
     {
@@ -28,6 +32,7 @@ public class Dash : MonoBehaviour
             onDash?.Invoke();
             isDashing = true;
             Invoke(nameof(StopDash), duration);
+            AudioDash?.Invoke();
         }
     }
 
@@ -36,6 +41,7 @@ public class Dash : MonoBehaviour
         onStopDash?.Invoke();
         isDashing = false;
         Invoke(nameof(EnableDash), inactiveDuration);
+        AudioDash?.Invoke();
     }
 
     private void EnableDash()
