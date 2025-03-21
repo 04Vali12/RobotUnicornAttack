@@ -29,11 +29,7 @@ public class Jump : MonoBehaviour
     private float maxJumpTime;
     [SerializeField]
     private UnityEvent AnimationJump;
-
-
-
-    
-
+//animationjump reproduce un loop de la animacion de salto
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
