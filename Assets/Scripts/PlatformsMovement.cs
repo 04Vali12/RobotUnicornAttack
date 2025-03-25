@@ -56,9 +56,10 @@ public class PlatformsMovement : MonoBehaviour
         onScoreChanged?.Invoke(Math.Abs((int) moveDistance.x));
         
     }
-    private void IncreaseSpeed()
+    public void IncreaseSpeed()
     {
         speed += speedIncrease;
+        pastSpeed = speedIncrease;
     }
 
     public void StopMovement()
