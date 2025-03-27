@@ -23,7 +23,7 @@ public class Jump : MonoBehaviour
     private bool isJumping;
 
     private float jumpTimeCounter;
-    private bool buttonPressed;
+    public bool buttonPressed;
 
     private bool canJump = true;
     private float maxJumpTime;
