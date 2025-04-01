@@ -11194,6 +11194,18 @@ MonoBehaviour:
           m_StringArgument: Something Aint Right
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2063663250}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_alpha
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: Something Aint Right
+          m_BoolArgument: 1
+        m_CallState: 2
   onFinishGame:
     m_PersistentCalls:
       m_Calls: []
@@ -11288,6 +11300,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 1
+          m_StringArgument: Lose
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2063663250}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_alpha
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11400,7 +11424,7 @@ MonoBehaviour:
         m_CallState: 2
   secondsToRestart: 3
   finalSecondsToRestart: 10
-  secondsToShowGameOverScreen: 2
+  secondsToShowGameOverScreen: 1
 --- !u!4 &1962103694
 Transform:
   m_ObjectHideFlags: 0
