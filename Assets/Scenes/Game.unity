@@ -246,7 +246,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c984c804a657c484a9c486f83b73e224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ObjectToInstantiate: {fileID: 4048870644937105340, guid: 19183e673b5b59447bf1c8172e4c3ca0, type: 3}
+  _objectToInstantiate: {fileID: 4048870644937105340, guid: 19183e673b5b59447bf1c8172e4c3ca0, type: 3}
 --- !u!4 &274830857
 Transform:
   m_ObjectHideFlags: 0
@@ -3564,7 +3564,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  scoreNumber: 3
+  scoreNumber: 0
   onSetHighScore:
     m_PersistentCalls:
       m_Calls:
@@ -4049,7 +4049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c984c804a657c484a9c486f83b73e224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ObjectToInstantiate: {fileID: 0}
+  _objectToInstantiate: {fileID: 5985634496115995773, guid: 463cf9f7af4680240898f6aeba3fe3e6, type: 3}
 --- !u!4 &755611524
 Transform:
   m_ObjectHideFlags: 0
@@ -4118,12 +4118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2ba3bea774dca488c4df94ece4365b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreTexts:
-  - {fileID: 1587081745}
-  - {fileID: 1038504240}
-  - {fileID: 1303956467}
-  - {fileID: 1303956467}
-  FinalScoreText: {fileID: 433055705}
+  scoresTexts: []
+  finalScoreText: {fileID: 433055705}
 --- !u!1 &813126767
 GameObject:
   m_ObjectHideFlags: 0
@@ -4142,7 +4138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &813126768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4523,7 +4519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c984c804a657c484a9c486f83b73e224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ObjectToInstantiate: {fileID: 4048870644937105340, guid: 12a07e473e6357c4a9bad0f972d4f232, type: 3}
+  _objectToInstantiate: {fileID: 4048870644937105340, guid: 12a07e473e6357c4a9bad0f972d4f232, type: 3}
 --- !u!4 &1168462564
 Transform:
   m_ObjectHideFlags: 0
@@ -4568,7 +4564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c984c804a657c484a9c486f83b73e224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ObjectToInstantiate: {fileID: 0}
+  _objectToInstantiate: {fileID: 7226888052703040409, guid: 7ec363c8df426644ea85f8d6d570561c, type: 3}
 --- !u!4 &1209754148
 Transform:
   m_ObjectHideFlags: 0
@@ -5100,7 +5096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c984c804a657c484a9c486f83b73e224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ObjectToInstantiate: {fileID: 2236736219923677653, guid: 02d8f8884ebdf5d43a9f64db182e079f, type: 3}
+  _objectToInstantiate: {fileID: 2236736219923677653, guid: 02d8f8884ebdf5d43a9f64db182e079f, type: 3}
 --- !u!4 &1344114902
 Transform:
   m_ObjectHideFlags: 0
@@ -5337,7 +5333,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 565436900}
         m_TargetAssemblyTypeName: Score, Assembly-CSharp
-        m_MethodName: SetScore
+        m_MethodName: AddScore
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5599,8 +5595,8 @@ GameObject:
   - component: {fileID: 1483553074}
   - component: {fileID: 1483553073}
   - component: {fileID: 1483553078}
-  - component: {fileID: 1483553081}
   - component: {fileID: 1483553082}
+  - component: {fileID: 1483553081}
   - component: {fileID: 1483553083}
   - component: {fileID: 1483553084}
   - component: {fileID: 1483553085}
@@ -5719,7 +5715,6 @@ Transform:
   m_LocalScale: {x: 1.6629, y: 1.6629, z: 1.6629}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2105612390}
   - {fileID: 934494029}
   - {fileID: 1333479802}
   - {fileID: 1798083787}
@@ -5740,8 +5735,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 10
   maxJumpForce: 15
-  jumpBoost: 10
-  maxJumps: 2
+  jumpBoost: 5
+  maxJumps: 3
   buttonPressed: 0
   AnimationJump:
     m_PersistentCalls:
@@ -5791,10 +5786,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1209754147}
         m_TargetAssemblyTypeName: InstantiateObject, Assembly-CSharp
         m_MethodName: InstantiateObjectAtPosition
-        m_Mode: 0
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1483553077}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5817,11 +5812,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 755611523}
         m_TargetAssemblyTypeName: InstantiateObject, Assembly-CSharp
-        m_MethodName: instantiateOnjectAtPosition
-        m_Mode: 0
+        m_MethodName: InstantiateObjectAtPosition
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1483553077}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5842,25 +5837,13 @@ MonoBehaviour:
   onCoinCollected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2865300069026852934, guid: 35436dcfb9b32ae478709f7456300f6f, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
-        m_MethodName: set_contactOffset
-        m_Mode: 4
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8581557049774500956, guid: 038afd1ec3bfdc94898993a43bd9e4a8, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
-        m_MethodName: set_contactOffset
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5878,8 +5861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b524d64fad2da3748a0fcfe467a0c511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1
-  inactiveDuration: 1
+  duration: 2
+  inactiveDuration: 3
   onDash:
     m_PersistentCalls:
       m_Calls:
@@ -5903,8 +5886,20 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2
+          m_FloatArgument: 3
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1318984397}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 3
+          m_StringArgument: DashSfx
           m_BoolArgument: 1
         m_CallState: 2
   onStopDash:
@@ -5936,19 +5931,7 @@ MonoBehaviour:
         m_CallState: 2
   AudioDash:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1318984397}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: DashSfx
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!96 &1483553083
 TrailRenderer:
   serializedVersion: 3
@@ -6130,7 +6113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c984c804a657c484a9c486f83b73e224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ObjectToInstantiate: {fileID: 4048870644937105340, guid: b25355a34bb8fbb42af48a03e718845a, type: 3}
+  _objectToInstantiate: {fileID: 4048870644937105340, guid: b25355a34bb8fbb42af48a03e718845a, type: 3}
 --- !u!4 &1536525825
 Transform:
   m_ObjectHideFlags: 0
@@ -11295,6 +11278,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799978386}
   m_CullTransparentMesh: 1
+--- !u!1 &1853675255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1853675256}
+  m_Layer: 0
+  m_Name: instantiateObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1853675256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853675255}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 4.352112, z: -0.00000023841858}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1857255951
 GameObject:
   m_ObjectHideFlags: 0
@@ -11550,9 +11564,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 808271597}
-        m_TargetAssemblyTypeName: ScoreGameOver, Assembly-CSharp
-        m_MethodName: Restart
+      - m_Target: {fileID: 565436900}
+        m_TargetAssemblyTypeName: Score, Assembly-CSharp
+        m_MethodName: Initialize
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11562,158 +11576,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1318984397}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: PlayMusic
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: Something Aint Right
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2063663250}
-        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
-        m_MethodName: set_alpha
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: Something Aint Right
-          m_BoolArgument: 1
-        m_CallState: 2
-  onFinishGame:
-    m_PersistentCalls:
-      m_Calls: []
-  onLoseGame:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1368977732}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
-        m_MethodName: OnReceiveDamage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1445632827}
-        m_TargetAssemblyTypeName: PlatformsMovement, Assembly-CSharp
-        m_MethodName: StopMovement
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1483553078}
-        m_TargetAssemblyTypeName: Jump, Assembly-CSharp
-        m_MethodName: SetCanJump
+      - m_Target: {fileID: 398881951}
+        m_TargetAssemblyTypeName: TiledBackground, Assembly-CSharp
+        m_MethodName: set_IsMoving
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Something Aint Right
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1483553082}
-        m_TargetAssemblyTypeName: Dash, Assembly-CSharp
-        m_MethodName: DashAction
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1962103693}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlayerLose
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 565436900}
-        m_TargetAssemblyTypeName: Score, Assembly-CSharp
-        m_MethodName: PlayerLose
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1318984397}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: StopMusic
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1318984397}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 1
-          m_StringArgument: Lose
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2063663250}
-        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
-        m_MethodName: set_alpha
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 1
-          m_StringArgument: Lose
-          m_BoolArgument: 1
-        m_CallState: 2
-  onShowGameOverScreen:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2063663250}
-        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
-        m_MethodName: set_alpha
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
   onRespawnGame:
     m_PersistentCalls:
@@ -11727,7 +11600,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: WideFade
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1483553078}
@@ -11802,6 +11675,120 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1483553074}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 398881951}
+        m_TargetAssemblyTypeName: TiledBackground, Assembly-CSharp
+        m_MethodName: set_IsMoving
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onFinishGame:
+    m_PersistentCalls:
+      m_Calls: []
+  onLoseGame:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 565436900}
+        m_TargetAssemblyTypeName: Score, Assembly-CSharp
+        m_MethodName: PlayerLose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1368977732}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: OnReceiveDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1445632827}
+        m_TargetAssemblyTypeName: PlatformsMovement, Assembly-CSharp
+        m_MethodName: StopMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1483553082}
+        m_TargetAssemblyTypeName: Dash, Assembly-CSharp
+        m_MethodName: DashAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1483553078}
+        m_TargetAssemblyTypeName: Jump, Assembly-CSharp
+        m_MethodName: SetCanJump
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1483553082}
+        m_TargetAssemblyTypeName: Dash, Assembly-CSharp
+        m_MethodName: SetDashEnabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1318984397}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: StopMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1318984397}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: Play
@@ -11809,10 +11796,49 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Something Aint Right
+          m_IntArgument: 2
+          m_FloatArgument: 1
+          m_StringArgument: Lose
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1483553074}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 1
+          m_StringArgument: Lose
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 398881951}
+        m_TargetAssemblyTypeName: TiledBackground, Assembly-CSharp
+        m_MethodName: set_IsMoving
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 1
+          m_StringArgument: Lose
+          m_BoolArgument: 0
+        m_CallState: 2
+  onShowGameOverScreen:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2063663250}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_alpha
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   secondsToRestart: 2
   finalSecondsToRestart: 3
@@ -11878,7 +11904,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063663248}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -11961,154 +11987,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094077259}
   m_CullTransparentMesh: 1
---- !u!1 &2105612389
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2105612390}
-  - component: {fileID: 2105612391}
-  m_Layer: 0
-  m_Name: TrailControler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &2105612390
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105612389}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.301, y: 0.435, z: 0}
-  m_LocalScale: {x: 0.3017299, y: 0.30173, z: 0.3017299}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1483553077}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!96 &2105612391
-TrailRenderer:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105612389}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 0
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Time: 3
-  m_PreviewTimeScale: 1
-  m_Parameters:
-    serializedVersion: 3
-    widthMultiplier: 1
-    widthCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    colorGradient:
-      serializedVersion: 2
-      key0: {r: 1, g: 0.15176821, b: 0.05098039, a: 1}
-      key1: {r: 0.9874988, g: 0.40729803, b: 0.028201992, a: 0.39117646}
-      key2: {r: 0.9720211, g: 0.7236701, b: 0, a: 0}
-      key3: {r: 1, g: 1, b: 1, a: 0}
-      key4: {r: 1, g: 1, b: 1, a: 0}
-      key5: {r: 1, g: 1, b: 1, a: 0}
-      key6: {r: 1, g: 1, b: 1, a: 0}
-      key7: {r: 1, g: 1, b: 1, a: 0}
-      ctime0: 3277
-      ctime1: 31611
-      ctime2: 50501
-      ctime3: 65535
-      ctime4: 65535
-      ctime5: 65535
-      ctime6: 65535
-      ctime7: 65535
-      atime0: 0
-      atime1: 39899
-      atime2: 65535
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_ColorSpace: 0
-      m_NumColorKeys: 4
-      m_NumAlphaKeys: 3
-    numCornerVertices: 0
-    numCapVertices: 0
-    alignment: 1
-    textureMode: 1
-    textureScale: {x: 1, y: 1}
-    shadowBias: 0.5
-    generateLightingData: 0
-  m_MinVertexDistance: 0.1
-  m_MaskInteraction: 0
-  m_Autodestruct: 0
-  m_Emitting: 1
-  m_ApplyActiveColorSpace: 1
 --- !u!1 &2125123934
 GameObject:
   m_ObjectHideFlags: 0
@@ -12438,3 +12316,4 @@ SceneRoots:
   - {fileID: 1536525825}
   - {fileID: 1344114902}
   - {fileID: 173486173}
+  - {fileID: 1853675256}

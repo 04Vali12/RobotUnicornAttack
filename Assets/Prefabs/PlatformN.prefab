@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7222581407528291883}
   m_Layer: 0
   m_Name: er
-  m_TagString: Obstacle
+  m_TagString: DeadZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f15b35327106a44b96c33db7414c60e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDeactivate:
+  onDeactivate:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &7123079250251581237

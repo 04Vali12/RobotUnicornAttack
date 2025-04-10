@@ -26,8 +26,16 @@ public class Score : MonoBehaviour
       {
          PlayerPrefs.SetInt("HighScore", score);
          PlayerPrefs.Save();
+      }else 
+      {
+         score = oldScore;
       }
       onSetHighScore?.Invoke(score.ToString());
+   }
+
+   private void Start()
+   {
+      SaveHighScore(0);
    }
 
    public void Initialize()

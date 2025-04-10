@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlatformInstantiate : MonoBehaviour
 {
 
-    [SerializeField]
+     [SerializeField]
     private List<InstantiateObject> platformPools;
     [SerializeField]
     private List<InstantiateObject> safePlatformPools;
@@ -30,7 +30,7 @@ public class PlatformInstantiate : MonoBehaviour
             int randomIndex = Random.Range(0, platformsToUse.Count);
             if (offsetPositionX != 0) 
             {
-                offsetPositionX += platformsToUse[randomIndex]._ObjectToInstantiate.GetComponent<BoxCollider>().size.x * 0.5f;
+                offsetPositionX += platformsToUse[randomIndex].ObjectToInstantiate.GetComponent<BoxCollider>().size.x * 0.5f;
             }
             GameObject platform = platformsToUse[randomIndex].CreateInstance();
             offsetPositionX += distanceBetweenPlatforms + platform.GetComponent<BoxCollider>().size.x * 0.5f;
@@ -47,5 +47,5 @@ public class PlatformInstantiate : MonoBehaviour
             child.gameObject.SetActive(false);
         }
         Start();
-    } 
+    }
 }

@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class InstantiateObject : MonoBehaviour
 {
-    [SerializeField] 
-    public GameObject _ObjectToInstantiate;
+    [SerializeField]
+    public GameObject _objectToInstantiate;
     [SerializeField]
     private Stack<GameObject> _objectPool = new Stack<GameObject>();
+    public GameObject ObjectToInstantiate => _objectToInstantiate;
 
-    
-
-    public void instantiateOnjectAtPosition(Transform asset)
+    public void InstantiateObjectAtPosition(Transform asset)
     {
         GameObject obj = CreateInstance();
         obj.transform.position = asset.position;
@@ -23,14 +22,14 @@ public class InstantiateObject : MonoBehaviour
         {
             obj = _objectPool.Pop();
             obj.SetActive(true);
-        }
-        else
+        } else
         {
-            obj = Instantiate(_ObjectToInstantiate, transform.position, Quaternion.identity);
-            obj.GetComponent<ObjectFromPool>().OnDeactivate.AddListener(OnObjectDeactivated);
+            obj = Instantiate(_objectToInstantiate, transform.position, Quaternion.identity);
+            obj.GetComponent<ObjectFromPool>().onDeactivate.AddListener(OnObjectDeactivated);
         }
         return obj;
     }
+
     public void OnObjectDeactivated(GameObject obj)
     {
         _objectPool.Push(obj);

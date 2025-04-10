@@ -3,12 +3,10 @@ using UnityEngine.Events;
 
 public class ObjectFromPool : MonoBehaviour
 {
-     public UnityEvent <GameObject> OnDeactivate;
-
-      private void OnDisable()
+       public UnityEvent<GameObject> onDeactivate;
+    private void OnDisable()
     {
-        OnDeactivate?.Invoke(gameObject);
+        onDeactivate?.Invoke(gameObject);
     }
-
 
 }
