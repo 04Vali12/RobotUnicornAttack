@@ -4,9 +4,11 @@ using UnityEngine.UI;
 public class ScoreUI : MonoBehaviour
 {
     [SerializeField]
-   private Text _scoreText;
+    private Text _scoreText;
+
     public void SetScore(int score)
     {
-         _scoreText.text = score.ToString();
+        _scoreText.text = score.ToString(); 
     }
+    
 }

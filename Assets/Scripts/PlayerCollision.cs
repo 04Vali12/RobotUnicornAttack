@@ -1,27 +1,26 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class PlayerCollision : MonoBehaviour
 {
-       [SerializeField]
+    [SerializeField]
     private UnityEvent onPlayerLose;
     private Dash dash;
- 
+
     [SerializeField]
     private UnityEvent<Transform> onObstacleDestroyed;
- 
+
     [SerializeField]
     private UnityEvent<Transform> onCollisionDie;
- 
+
     [SerializeField]
     private UnityEvent onCoinCollected;
- 
+
     private void Start()
     {
         dash = GetComponent<Dash>();
     }
- 
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
@@ -37,7 +36,7 @@ public class PlayerCollision : MonoBehaviour
             }
         }
     }
- 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("DeadZone"))
@@ -45,12 +44,11 @@ public class PlayerCollision : MonoBehaviour
             onCollisionDie?.Invoke(transform);
             onPlayerLose?.Invoke();
         }
- 
+
         else if (other.CompareTag("Coin"))
         {
             other.gameObject.SetActive(false);
             onCoinCollected?.Invoke();
         }
     }
-    
-    }
+}

@@ -8,13 +8,16 @@ public class ButtonController : MonoBehaviour, IPointerUpHandler, IPointerDownHa
     private UnityEvent onPressedButton;
     [SerializeField]
     private UnityEvent onReleasedButton;
-
+    
     public void OnPointerDown(PointerEventData eventData)
     {
         onPressedButton?.Invoke();
     }
-    public void OnPointerUp(PointerEventData eventData) 
-    { 
-        onReleasedButton?.Invoke(); 
-    } 
+    
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        onReleasedButton?.Invoke();
+    }
+
+    
 }

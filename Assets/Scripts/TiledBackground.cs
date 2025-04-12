@@ -4,31 +4,36 @@ using UnityEngine;
 public class TiledBackground : MonoBehaviour
 {
     [SerializeField]
+
     private float speed = 0.5f;
 
     private Renderer rendererUsed;
 
     private Vector2 offset = Vector2.zero;
 
-    private Boolean isMoving = true;   
+    private Boolean isMoving = true;
 
-    public bool IsMoving 
+    public bool IsMoving
     {
         get => isMoving;
-        set 
+        set
         {
             isMoving = value;
         }
     }
 
+
     private void Start()
     {
         rendererUsed = GetComponent<Renderer>();
     }
+
     private void Update()
     {
         if (!isMoving) return;
-         offset.x += speed * Time.deltaTime;
+        offset.x += speed * Time.deltaTime;
         rendererUsed.material.mainTextureOffset = offset;
+
+        
     }
 }

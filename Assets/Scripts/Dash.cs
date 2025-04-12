@@ -4,44 +4,42 @@ using UnityEngine.Events;
 public class Dash : MonoBehaviour
 {
     [SerializeField]
-    private float duration = 1f;
+    private float duration = 1.5f;
     [SerializeField]
-    private float inactiveDuration = 2f;
-    [SerializeField]    
     private UnityEvent onDash;
     [SerializeField]
-    private UnityEvent onStopDash;
+    private UnityEvent onDashEnd;
+    [SerializeField]
+    private float inactiveDuration = 2f;
+
+
     private bool canDash = true;
     private bool isDashing;
     public bool IsDashing { get => isDashing; }
 
-    private bool dashEnabled = true;
+    private bool dashEnable = true;
 
-    [SerializeField]
-    private UnityEvent AudioDash;
-
-    public void SetDashEnabled(bool enabled)
+    public void SetDashEnable(bool enabled)
     {
-        dashEnabled = enabled;
+        dashEnable = enabled;
     }
+
     public void DashAction()
     {
-        if (!isDashing && canDash && dashEnabled)
+        if(!isDashing && canDash && dashEnable)
         {
             canDash = false;
             onDash?.Invoke();
             isDashing = true;
             Invoke(nameof(StopDash), duration);
-            AudioDash?.Invoke();
         }
     }
 
     private void StopDash()
     {
-        onStopDash?.Invoke();
+        onDashEnd?.Invoke();
         isDashing = false;
         Invoke(nameof(EnableDash), inactiveDuration);
-        AudioDash?.Invoke();
     }
 
     private void EnableDash()

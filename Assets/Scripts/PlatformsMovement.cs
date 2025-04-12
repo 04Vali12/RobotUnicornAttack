@@ -4,23 +4,22 @@ using UnityEngine.Events;
 
 public class PlatformsMovement : MonoBehaviour
 {
+
     [SerializeField]
-    private float initialSpeed = 5f;
+    private float initialSpeed = 2f;
     [SerializeField]
     private float speedIncrease = 0.1f;
+    [SerializeField]
+    private UnityEvent<int> onScoreChanged;
+    [SerializeField]
+    private float scoreValue = 1f;
 
-    [SerializeField]
-    private UnityEvent <int> onScoreChanged;
     private bool canMove = true;
-    [SerializeField]
-    private  float scoreValue = 1f;
+    public bool CanMove { set => canMove = value; }
     private Vector3 startingPosition;
     private float speed;
-
     private float pastSpeed;
-    private Vector3 moveDistance;
-
-
+    private Vector3 movedDistance;
 
     public void SpeedUp(float speedMultiplier)
     {
@@ -34,16 +33,9 @@ public class PlatformsMovement : MonoBehaviour
     }
     private void Start()
     {
-       startingPosition = transform.position;
-       speed = initialSpeed;
+        startingPosition = transform.position;
+        speed = initialSpeed;
     }
-
-    
-    public bool CanMove
-    {
-        set => canMove = value;
-    }
-
     private void Update()
     {
         if (canMove)
@@ -51,24 +43,26 @@ public class PlatformsMovement : MonoBehaviour
             MovePlatforms();
         }
     }
+
     private void MovePlatforms()
     {
         Vector3 distanceToMove = Vector3.left * speed * Time.deltaTime;
         transform.position += distanceToMove;
-        moveDistance += distanceToMove;
+        movedDistance += distanceToMove;
         onScoreChanged?.Invoke(Math.Abs((int)scoreValue));
-        
     }
+
     public void IncreaseSpeed()
     {
         speed += speedIncrease;
-        pastSpeed = speedIncrease;
+        pastSpeed += speedIncrease;
     }
 
     public void StopMovement()
     {
         canMove = false;
     }
+
     public void StartMovement()
     {
         canMove = true;
@@ -78,9 +72,7 @@ public class PlatformsMovement : MonoBehaviour
     {
         transform.position = startingPosition;
         speed = initialSpeed;
-        moveDistance = Vector3.zero;
+        movedDistance = Vector3.zero;
         StartMovement();
     }
-
-
 }

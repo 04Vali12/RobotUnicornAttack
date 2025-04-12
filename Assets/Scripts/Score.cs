@@ -4,72 +4,72 @@ using UnityEngine.Events;
 
 public class Score : MonoBehaviour
 {
-   private  List<int> scores = new List<int>();
-   private int currentScore = 0;
+    private List<int> scores = new List<int>();
+    private int currentScore = 0;
+    [SerializeField]
+    private UnityEvent<int> onScoreChanged;
+    [SerializeField]
+    private UnityEvent<int> onSetScore;
+    [SerializeField]
+    private UnityEvent<int> onSetFinalScore;
+    [SerializeField]
+    private UnityEvent<string> onSetHighScore;
 
-   [SerializeField]
-   private UnityEvent<int> onScoreChange;
-   [SerializeField]
-   private UnityEvent<int> onSetScore;
+    private void Start()
+    {
+        SaveHighScore(0);
+    }
 
-   [SerializeField]
-   private UnityEvent<int> onSetFinalScore;
-   [SerializeField]
-   private int scoreNumber = 3;
-   [SerializeField]
-   public UnityEvent <string> onSetHighScore;
+    public void Initialize()
+    {
+        currentScore = 0;
+        scores.Clear();
+    }
+    public void SetScore(int score)
+    {
+        currentScore = score;
+        onScoreChanged?.Invoke(currentScore);
+    }
 
-   private void SaveHighScore(int score)
-   {
-      int oldScore = PlayerPrefs.GetInt("HighScore", 0);
-      if (score > oldScore)
-      {
-         PlayerPrefs.SetInt("HighScore", score);
-         PlayerPrefs.Save();
-      }else 
-      {
-         score = oldScore;
-      }
-      onSetHighScore?.Invoke(score.ToString());
-   }
+    public void PlayerLose()
+    {
+        scores.Add(currentScore);
+        onSetScore?.Invoke(currentScore);
+        currentScore = 0;
+    }
 
-   private void Start()
-   {
-      SaveHighScore(0);
-   }
+    public void SetFinalScore()
+    {
+        int finalScore = 0;
+        foreach (int score in scores)
+        {
+            finalScore += score;
+        }
+        onSetFinalScore?.Invoke(finalScore);
+        SaveHighScore(finalScore);
+        scores.Clear();
+    }
 
-   public void Initialize()
-   {
-      currentScore = 0;
-      scores.Clear();
-   }
-   public void SetScore(int score)
-   {
-      currentScore = score;
-      onScoreChange?.Invoke(currentScore);
-   }
-
-   public void PlayerLose()
-   {
-    scores.Add(currentScore);
-    onSetScore?.Invoke(currentScore);
-    currentScore = 0;
-   }
-
-   public void SetFinalScore()
-   {
-     int finalScore = 0;
-     foreach (int score in scores)
-     {
-        finalScore += score;
-     }  
-    onSetFinalScore?.Invoke(finalScore);
-      SaveHighScore(finalScore);
-    scores.Clear();
-   }
-   public void AddScore(int score)
+    public void AddScore(int score)
     {
         currentScore += score;
-        onScoreChange?.Invoke(currentScore);
+        onScoreChanged?.Invoke(currentScore);
     }
+
+    private void SaveHighScore (int score)
+    {
+        int oldScore = PlayerPrefs.GetInt("HighScore", 0);
+        if (score > oldScore)
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            score = oldScore;
+        }
+        onSetHighScore?.Invoke(score.ToString());
+    }
+
+
 }

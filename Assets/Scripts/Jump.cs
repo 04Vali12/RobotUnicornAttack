@@ -1,96 +1,102 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Jump : MonoBehaviour
+public class jUMP : MonoBehaviour
 {
+
     [SerializeField]
     private float jumpForce = 5f;
     [SerializeField]
-    private float maxJumpForce = 0.3f;
-
+    private float maxJumpTime = 0.3f;
     [SerializeField]
-    private float jumpBoost;
-
+    private float jumpBoost = 0.5f;
+    
     [SerializeField]
     private int maxJumps = 2;
-
     private int jumps;
 
+    [SerializeField]
+    private UnityEvent onLand;
+
     private Rigidbody rb;
-    
+
     private bool isGrounded;
-    
     private bool isJumping;
+    private bool buttonPressed;
+    private bool canJump = true;
 
     private float jumpTimeCounter;
-    public bool buttonPressed;
+    
+    
+    private void RestartJumps()
+    {
+        jumps = maxJumps;
+    }
 
-    private bool canJump = true;
-    private float maxJumpTime;
-    [SerializeField]
-    private UnityEvent AnimationJump;
-//animationjump reproduce un loop de la animacion de salto
-    private void Start()
+
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
     }
 
     public void SetCanJump(bool value)
     {
         canJump = value;
+        isGrounded = true;
     }
 
-    private void RestartJumps()
-    {
-       jumps = maxJumps;
-    }
     public void StartJump()
     {
-        buttonPressed = true;
-
-        if (!canJump)
+        if(!canJump)
         {
             return;
         }
-        if (isGrounded || jumps > 0)
+
+        buttonPressed = true;
+        if(isGrounded || jumps > 0)
         {
             jumps--;
             isJumping = true;
             jumpTimeCounter = maxJumpTime;
             rb.linearVelocity = Vector3.up * jumpForce;
             isGrounded = false;
-            AnimationJump?.Invoke();
         }
     }
+
     public void EndJump()
     {
-        buttonPressed = false;  
+        buttonPressed = false;
     }
+
     private void FixedUpdate()
     {
         HandleJump();
     }
+
     private void HandleJump()
     {
-        if (jumpTimeCounter > 0)
+        if (buttonPressed && isJumping)
         {
-            rb.linearVelocity = Vector3.up * (jumpForce + jumpBoost);
-            jumpTimeCounter -= Time.deltaTime;
-            AnimationJump?.Invoke();
-        }
-        else
-        { 
-            isJumping = false;
-        }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            RestartJumps();
-            isGrounded = true;
+            if(jumpTimeCounter > 0)
+            {
+                rb.linearVelocity = Vector3.up * (jumpForce + jumpBoost);
+                jumpTimeCounter -= Time.deltaTime;
+            }
+
+            else
+            {
+                isJumping = false;
+            }
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        { 
+            RestartJumps();
+            isGrounded = true;
+            onLand?.Invoke();
+        }
+    }
 }
