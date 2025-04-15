@@ -8039,22 +8039,22 @@ MonoBehaviour:
           m_StringArgument: FadeWtT
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1153050345}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: PlayMusic
-        m_Mode: 5
+      - m_Target: {fileID: 268831730}
+        m_TargetAssemblyTypeName: TiledBackground, Assembly-CSharp
+        m_MethodName: set_IsMoving
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: SAR-XG
-          m_BoolArgument: 0
+          m_StringArgument: GameMusic
+          m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 268831730}
-        m_TargetAssemblyTypeName: TiledBackground, Assembly-CSharp
-        m_MethodName: set_IsMoving
-        m_Mode: 6
+      - m_Target: {fileID: 129493661}
+        m_TargetAssemblyTypeName: RunSpeed, Assembly-CSharp
+        m_MethodName: StartRunSpeed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8172,18 +8172,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: FadeWtT
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1153050345}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: SAR-XG
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1153050345}
